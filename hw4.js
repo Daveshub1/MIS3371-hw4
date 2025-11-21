@@ -167,7 +167,7 @@ function validatePhone() {
 
 function validateEmail() {
     const email = document.getElementById("email").value;
-    var emailR = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$/;
+    var emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     
     if (email =="") {
         document.getElementById("email-error").innerHTML = 
@@ -353,8 +353,7 @@ function reviewInput() {
         if (["pword", "con_pword", "ssn"].includes(formcontent.elements[i].id)) {
     continue;
         }
-if (formcontent.elements[i].type === "radio" || formcontent.elements[i].type === "checkbox") {
-    // handle separately
+    if (formcontent.elements[i].value !== "") {
             switch (formcontent.elements[i].type) {
                 case "checkbox":
                     if (formcontent.elements[i].checked) {
